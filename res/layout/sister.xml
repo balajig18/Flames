@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ResultActivity" >
+
+
+    <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/result_button"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/include"
+            android:layout_x="2dp"
+            android:layout_y="611dp"/>
+
+    <ImageView
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/broandsister"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_x="38dp"
+            android:layout_y="33dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/sis_tv"
+            android:layout_above="@+id/include"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:layout_x="124dp"
+            android:layout_y="517dp"/>
+</AbsoluteLayout>

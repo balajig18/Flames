@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="NewApi">
+        <ignore path="src\org\fun\flames\Main.java" />
+    </issue>
+    <issue id="Registered" severity="ignore" />
+    <issue id="ShowToast" severity="ignore" />
+</lint>

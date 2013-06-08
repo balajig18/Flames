@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="Kollywood_actress">
+        <item>Asin</item>
+        <item>Anushka</item>
+        <item>Dhansika</item>
+        <item>Janani Iyer</item>
+        <item>Kalpana Iyer</item>
+        <item>Karthika</item>
+        <item>Nayanthara</item>
+        <item>Nazriya Nazim</item>
+        <item>Priya Anand</item>
+        <item>Shruti Haasan</item>
+        <item>Samantha</item>
+        <item>Trisha Krishnan</item>
+        <item>Tamana</item>
+        <item>Vijayalakshmi Agathiyan</item>
+    </string-array>
+    <string-array name="Kollywood_actors">
+        <item>Vijay</item>
+        <item>Ajith</item>
+        <item>Dhanush</item>
+        <item>Jai</item>
+        <item>Surya</item>
+        <item>Karthi</item>
+        <item>Vijay Sethupathi</item>
+        <item>Jiva</item>
+        <item>Arya</item>
+        <item>STR</item>
+        <item>Jayam Ravi</item>
+        <item>Siva Karthikeyan</item>
+    </string-array>
+    <string-array name="Hollywood_Actress">
+        <item>Jessica Alba</item>
+        <item>Emma Waston</item>
+        <item>Selena gomez</item>
+        <item>Amanda Seyfried</item>
+        <item>Ellen Page</item>
+        <item>Kirsten Dunst</item>
+        <item>Emma Stone</item>
+        <item>Emmy Rossum</item>
+        <item>Vanessa Hudgens</item>
+        <item>Jennifer Lawrence</item>
+        <item>Victoria Justice</item>
+    </string-array>
+
+    <array name="BgSound">
+
+        <item>@raw/marriage</item>
+        <item>@raw/enemy</item>
+        <item>@raw/marriage</item>
+        <item>@raw/marriage</item>
+        <item>@raw/enemy</item>
+
+
+    </array>
+
+</resources>

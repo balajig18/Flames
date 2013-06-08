@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        layout="@layout/result_button"
+        android:id="@+id/include"/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:src="@drawable/friends"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="He"
+            android:id="@+id/fr_tv1"
+            android:layout_below="@+id/imageView1"
+            android:layout_marginLeft="25dp"
+
+            android:layout_alignLeft="@+id/imageView1"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="is your best friend"
+            android:id="@+id/fr_tv2"
+            android:layout_marginLeft="125dp"
+            android:layout_below="@+id/imageView1"
+
+            />
+
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/lovers">
+
+    <include
+            android:id="@+id/include1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            layout="@layout/result_button"/>
+
+    <TextView
+            android:id="@+id/lv_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lv_female"
+            android:layout_alignBottom="@+id/lv_female"
+            android:layout_marginLeft="39dp"
+            android:layout_toRightOf="@+id/imageView1"
+            android:text="Male"
+            android:textSize="20dp"/>
+
+    <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/lv_male"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/heart"/>
+
+    <TextView
+            android:id="@+id/lv_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/include1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="37dp"
+            android:layout_marginLeft="38dp"
+            android:maxWidth="100dp"
+            android:text="Female"
+            android:textSize="20dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="flames" default="all">
+
+
+    <property file="flames.properties"/>
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <!--
+    <property name="skip.tests" value="true"/>
+     -->
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.max.memory" value="128m"/>
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/.pyc/**"/>
+        <exclude name="**/.pyo/**"/>
+        <exclude name="**/*.pyc/**"/>
+        <exclude name="**/*.pyo/**"/>
+        <exclude name="**/.git/**"/>
+        <exclude name="**/*.hprof/**"/>
+        <exclude name="**/_svn/**"/>
+        <exclude name="**/.hg/**"/>
+        <exclude name="**/*.lib/**"/>
+        <exclude name="**/*~/**"/>
+        <exclude name="**/__pycache__/**"/>
+        <exclude name="**/.bundle/**"/>
+        <exclude name="**/*.rbc/**"/>
+    </patternset>
+    <patternset id="library.patterns">
+        <include name="*.zip"/>
+        <include name="*.apk"/>
+        <include name="*.war"/>
+        <include name="*.egg"/>
+        <include name="*.ear"/>
+        <include name="*.ane"/>
+        <include name="*.swc"/>
+        <include name="*.jar"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <exclude name="**/?*.java"/>
+        <exclude name="**/?*.form"/>
+        <exclude name="**/?*.class"/>
+        <exclude name="**/?*.groovy"/>
+        <exclude name="**/?*.scala"/>
+        <exclude name="**/?*.flex"/>
+        <exclude name="**/?*.kt"/>
+        <exclude name="**/?*.clj"/>
+    </patternset>
+
+    <!-- JDK definitions -->
+
+    <property name="jdk.bin.android_4.2.2" value="C:/Program Files/Java/jdk1.7.0_07/bin"/>
+    <path id="jdk.classpath.android_4.2.2">
+        <fileset dir="${jdk.home.android_4.2.2}">
+            <include name="platforms/android-17/android.jar"/>
+            <include name="platforms/android-17/data/res"/>
+            <include name="tools/support/annotations.jar"/>
+        </fileset>
+    </path>
+
+    <property name="project.jdk.home" value="${jdk.home.android_4.2.2}"/>
+    <property name="project.jdk.bin" value="${jdk.bin.android_4.2.2}"/>
+    <property name="project.jdk.classpath" value="jdk.classpath.android_4.2.2"/>
+
+
+    <!-- Project Libraries -->
+    <!-- Register Custom Compiler Taskdefs -->
+    <property name="javac2.home" value="${idea.home}/lib"/>
+    <path id="javac2.classpath">
+        <pathelement location="${javac2.home}/javac2.jar"/>
+        <pathelement location="${javac2.home}/jdom.jar"/>
+        <pathelement location="${javac2.home}/asm4-all.jar"/>
+        <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+    </path>
+    <target name="register.custom.compilers">
+        <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+        <taskdef name="instrumentIdeaExtensions"
+                 classname="com.intellij.ant.InstrumentIdeaExtensions"
+                 classpathref="javac2.classpath"/>
+    </target>
+
+    <!-- Modules -->
+
+
+    <!-- Module Flames -->
+
+    <dirname property="module.flames.basedir" file="${ant.file}"/>
+
+
+    <property name="module.jdk.home.flames" value="${project.jdk.home}"/>
+    <property name="module.jdk.bin.flames" value="${project.jdk.bin}"/>
+    <property name="module.jdk.classpath.flames" value="${project.jdk.classpath}"/>
+
+    <property name="compiler.args.flames" value="${compiler.args}"/>
+
+    <property name="flames.output.dir" value="${module.flames.basedir}/out/production/Flames"/>
+    <property name="flames.testoutput.dir" value="${module.flames.basedir}/out/test/Flames"/>
+
+    <path id="flames.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="flames.module.production.classpath">
+        <path refid="${module.jdk.classpath.flames}"/>
+    </path>
+
+    <path id="flames.runtime.production.module.classpath">
+        <pathelement location="${flames.output.dir}"/>
+    </path>
+
+    <path id="flames.module.classpath">
+        <path refid="${module.jdk.classpath.flames}"/>
+        <pathelement location="${flames.output.dir}"/>
+    </path>
+
+    <path id="flames.runtime.module.classpath">
+        <pathelement location="${flames.testoutput.dir}"/>
+        <pathelement location="${flames.output.dir}"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.flames">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.flames">
+        <patternset refid="excluded.from.module.flames"/>
+    </patternset>
+
+    <path id="flames.module.sourcepath">
+        <dirset dir="${module.flames.basedir}">
+            <include name="gen"/>
+            <include name="src"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.flames"
+            depends="compile.module.flames.production,compile.module.flames.tests"
+            description="Compile module Flames"/>
+
+    <target name="compile.module.flames.production" depends="register.custom.compilers"
+            description="Compile module Flames; production classes">
+        <mkdir dir="${flames.output.dir}"/>
+        <javac2 destdir="${flames.output.dir}" debug="${compiler.debug}"
+                nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}"
+                fork="true" executable="${module.jdk.bin.flames}/javac">
+            <compilerarg line="${compiler.args.flames}"/>
+            <bootclasspath refid="flames.module.bootclasspath"/>
+            <classpath refid="flames.module.production.classpath"/>
+            <src refid="flames.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.flames"/>
+        </javac2>
+
+        <copy todir="${flames.output.dir}">
+            <fileset dir="${module.flames.basedir}/gen">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.flames.basedir}/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.flames.tests"
+            depends="register.custom.compilers,compile.module.flames.production"
+            description="compile module Flames; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.flames" description="cleanup module">
+        <delete dir="${flames.output.dir}"/>
+        <delete dir="${flames.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <!-- Perform any build initialization in this target -->
+    </target>
+
+    <target name="clean" depends="clean.module.flames" description="cleanup all"/>
+
+    <target name="build.modules" depends="init, clean, compile.module.flames"
+            description="build all modules"/>
+
+    <target name="all" depends="build.modules" description="build all"/>
+</project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/marriage_back">
+
+    <include
+            android:id="@+id/include1"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            layout="@layout/result_button"/>
+
+    <TextView
+            android:id="@+id/mr_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/include1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="44dp"
+            android:text="Female"
+            android:textSize="20sp"/>
+
+    <TextView
+            android:id="@+id/mr_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/mr_tv1"
+            android:layout_alignBottom="@+id/mr_tv1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="58dp"
+            android:text="Male"
+            android:textSize="20sp"/>
+
+</RelativeLayout>

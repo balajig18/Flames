@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_round">
+
+    <EditText
+            android:id="@+id/crushname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle"
+            android:drawableLeft="@drawable/heart"
+            android:drawablePadding="10dp"
+            android:ems="13"
+            android:hint="Your Crush"
+            android:textColorHint="@color/Red"
+            android:textStyle="italic"
+            android:singleLine="true"
+            android:layout_below="@+id/cr_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"/>
+
+    <ImageButton
+            android:id="@+id/calculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="46dp"
+            android:background="@null"
+            android:src="@drawable/crnext"/>
+
+    <ImageButton
+            android:id="@+id/crchoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/options"
+            android:layout_below="@+id/crushname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+    <TextView
+            android:id="@+id/name2"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Your Crush"
+            android:textSize="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"/>
+
+    <ImageView
+        android:id="@+id/cr_img"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_below="@+id/name2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"/>
+
+</RelativeLayout>
